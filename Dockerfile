@@ -18,7 +18,5 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer 
 
-WORKDIR /var/www/silverstripe
-
 RUN composer create-project silverstripe/installer /var/www/silverstripe/public  4.0.0-alpha1
-ADD docker/public  /var/www/silverstripe/public 
+WORKDIR /var/www/silverstripe
