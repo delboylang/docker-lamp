@@ -1,0 +1,17 @@
+web:
+  build: .
+  links:
+    - db
+  volumes:
+    - .:/var/www/silverstripe
+  ports:
+    - "80:80"
+db:
+  image: tutum/mysql
+  environment:
+    MYSQL_USER: silver
+    MYSQL_PASS: password
+  volumes:
+    - /mnt/sda1/var/lib/silverstripe:/var/lib/mysql
+  ports:
+    - "3306:3306"
